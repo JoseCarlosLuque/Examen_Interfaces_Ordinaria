@@ -9,7 +9,13 @@ import SwiftUI
 
 struct VistaListaProductos: View {
     
-    @StateObject private var viewModel = Producto
+    @StateObject private var viewModel = ProductoViewModel()
+    
+    let columns = [
+            GridItem(.flexible(), spacing: 16),
+            GridItem(.flexible(), spacing: 16)
+        ]
+    
     var body: some View {
         // ✅ Search Bar Mejorada
                         TextField(" Buscar película...", text: $viewModel.searchText)
@@ -23,9 +29,7 @@ struct VistaListaProductos: View {
                         ScrollView {
                             LazyVGrid(columns: columns, spacing: 16) {
                                 ForEach(viewModel.movies) { movie in
-                                    NavigationLink(destination: MovieDetailView(movie: movie)) {
-                                        MovieCardView(movie: movie)
-                                    }
+                                    VistaProducto(producto: Producto)
                                     .buttonStyle(PlainButtonStyle()) // Evita resaltado feo en clics
                                 }
                             }

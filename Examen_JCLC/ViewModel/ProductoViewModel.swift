@@ -29,7 +29,7 @@ class ProcuctoViewModel: ObservableObject {
     func fetcProductos() {
         apiService.fetchAllProducts() { [weak self] result in
             switch result {
-            case .success(let movies):
+            case .success(let products):
                 self?.movies = movies
             case .failure(let error):
                 print("Error fetching movies: \(error)")

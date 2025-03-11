@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-       
+        // Cargo la vista de lista de productos.
+        NavigationStack {
+            VistaListaProductos()
+        }
     }
 }
 
